@@ -11,18 +11,7 @@ service "haproxy" do
   supports :status => true, :restart => true
 end
 
-haproxy_version = "1.5-dev19-0ubuntu1~precise"
-  include_recipe "apt"
-  apt_repository "haproxy" do
-    uri "http://ppa.launchpad.net/nilya/haproxy-1.5/ubuntu"
-    distribution node['lsb']['codename']
-    components ["main"]
-    keyserver "keyserver.ubuntu.com"
-    key "A6D3315B"
-  end
-
 package "haproxy" do
-  version haproxy_version
   action :install
 end
   
