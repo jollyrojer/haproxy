@@ -51,7 +51,6 @@ EOF
   option httplog
 EOF
   fi
-fi
 }
 
 addBackend(){
