@@ -11,6 +11,11 @@ service "haproxy" do
   supports :status => true, :restart => true
 end
 
+if platform_family?('rhel')
+  include_recipe "yum"
+  include_recipe "yum::epel"
+end
+
 package "haproxy" do
   action :install
 end
